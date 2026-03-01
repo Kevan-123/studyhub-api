@@ -18,6 +18,8 @@ from django.contrib import admin
 from django.urls import path, include
 from rest_framework.routers import DefaultRouter
 from goals.views import StudyGoalViewSet
+from tasks.views import TaskViewSet
+from resources.views import CategoryViewSet, LearningResourceViewSet
 from rest_framework_simplejwt.views import (
     TokenObtainPairView,
     TokenRefreshView,
@@ -25,6 +27,9 @@ from rest_framework_simplejwt.views import (
 
 router = DefaultRouter()
 router.register(r'goals', StudyGoalViewSet, basename='goals')
+router.register(r'tasks', TaskViewSet, basename='tasks')
+router.register(r'categories', CategoryViewSet, basename='categories')
+router.register(r'resources', LearningResourceViewSet, basename='resources')
 
 urlpatterns = [
     path('admin/', admin.site.urls),
